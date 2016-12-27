@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AnimatedBarGraph">
+        <attr name="to_inPercentOfParent" format="integer" />
+        <attr name="to_inPixel" format="integer" />
+        <attr name="anim_duration" format="integer" />
+    </declare-styleable>
+</resources>
