@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 /**
@@ -18,9 +20,15 @@ public class AnimatedBarGraph extends LinearLayout {
 
 
     Context mContext;
+    TextView percentTV;
+    LinearLayout batLl;
 
     public AnimatedBarGraph(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater.inflate(R.layout.bargraph, this);
+        percentTV=(TextView) findViewById(R.id.percentTv);
         init(context,attrs);
     }
 
@@ -65,7 +73,7 @@ public class AnimatedBarGraph extends LinearLayout {
         scaleAnimation.setDuration(duration);
         scaleAnimation.setFillAfter(true);
         scaleAnimation.setBackgroundColor(Color.BLACK);
-        startAnimation(scaleAnimation);
+        batLl.startAnimation(scaleAnimation);
     }
 
     private float SetToY(){
